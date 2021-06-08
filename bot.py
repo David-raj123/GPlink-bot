@@ -3,6 +3,7 @@ import aiohttp
 
 from pyrogram import Client, Filters
 from pyrogram import InlineKeyboardButton, InlineKeyboardMarkup
+from pyshorteners import Shortener
 
 API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
