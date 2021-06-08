@@ -27,7 +27,7 @@ async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
         short_link = await get_shortlink(link)
-    message= f"Here Is Your Converted Short Link"
+    message = f"Here Is Your Converted Short Link"
     markup = InlineKeyboardMarkup([[InlineKeyboardButton("GP Link", url=short_link)]])
     await update.reply_text(text=message, reply_markup=markup, quote=True)
         )
