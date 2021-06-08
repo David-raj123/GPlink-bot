@@ -1,7 +1,7 @@
 from os import environ
 import aiohttp
 
-from pyrogram import Client, filters
+from pyrogram import Client, Filters
 from pyrogram import InlineKeyboardButton, InlineKeyboardMarkup
 
 API_ID = environ.get('API_ID')
