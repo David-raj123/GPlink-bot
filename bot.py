@@ -30,8 +30,7 @@ async def link_handler(bot, message):
         short_link = await get_shortlink(link)
         await message.reply(f'Here is your [short link]({short_link})')
         markup = InlineKeyboardMarkup([[InlineKeyboardButton("Link", url=short_link)]])
-        reply_markup=markup,
-        quote=True,
+        reply_markup=markup, quote=True
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
     
