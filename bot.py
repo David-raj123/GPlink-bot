@@ -1,7 +1,7 @@
 from os import environ
 import aiohttp
 from pyrogram import Client, Filters
-import InlineKeyboardButton , InlineKeyboard
+InlineKeyboardButton, InlineKeyboardMarkup,
 
 API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
@@ -27,7 +27,16 @@ async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
         short_link = await get_shortlink(link)
-        await message.reply(f'Here is your [short link]({short_link})', quote=True)
+        button = InlineKeyboardButton("GP Link", url=short_link)
+        markup = InlineKeyboardMarkup([[button]])
+        await bot.edit_message_text(
+            chat_id=update.chat.id,
+            text=(f'Here is your [short link]({short_link})', quote=True)
+            parse_mode="html",
+            message_id=a.message_id,
+            disable_web_page_preview=True,
+            reply_markup=markup,
+        )
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
     
