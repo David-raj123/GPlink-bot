@@ -6,7 +6,7 @@ InlineKeyboardButton, InlineKeyboardMarkup,
 API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
 BOT_TOKEN = environ.get('BOT_TOKEN')
-API_KEY = environ.get('API_KEY','5fd20df0c4db85798dd4f5ff3d03e3606a94f98b')
+API_KEY = environ.get('API_KEY')
 
 
 bot = Client('gplink bot', 
@@ -31,7 +31,7 @@ async def link_handler(bot, message):
         markup = InlineKeyboardMarkup([[button]])
         await bot.edit_message_text(
             chat_id=update.chat.id,
-            text = 'Here Is Your Converted Short Link ==>[CLICK HERE]({short_link})', quote=True)
+            text=f'Here Is Your Converted Short Link ==>[CLICK HERE]({short_link})', quote=True)
             parse_mode="html",
             message_id=a.message_id,
             disable_web_page_preview=True,
