@@ -27,14 +27,9 @@ async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
         short_link = await get_shortlink(link)
-        button = InlineKeyboardButton("GP Link", url=short_link)
-        markup = InlineKeyboardMarkup([[button]])
-        await bot.edit_message_text(
-            chat_id=update.chat.id,
-            text=f'Here Is Your Converted Short Link ==>[CLICK HERE]({short_link})', quote=True)
-            message_id=a.message_id,
-            disable_web_page_preview=True,
-            reply_markup=markup,
+    message= f"Here Is Your Converted Short Link"
+    markup = InlineKeyboardMarkup([[InlineKeyboardButton("GP Link", url=short_link)]])
+    await update.reply_text(text=message, reply_markup=markup, quote=True)
         )
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
