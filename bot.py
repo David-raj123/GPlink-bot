@@ -31,7 +31,6 @@ async def link_handler(bot, message):
     message = f"Here Is Your Converted Short Link"
     markup = InlineKeyboardMarkup([[InlineKeyboardButton("GP Link", url=(short_link))]])
     await update.reply_text(text=message, reply_markup=markup, quote=True)
-        )
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
     
