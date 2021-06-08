@@ -32,7 +32,6 @@ async def link_handler(bot, message):
         await bot.edit_message_text(
             chat_id=update.chat.id,
             text=f'Here Is Your Converted Short Link ==>[CLICK HERE]({short_link})', quote=True)
-            parse_mode="html",
             message_id=a.message_id,
             disable_web_page_preview=True,
             reply_markup=markup,
